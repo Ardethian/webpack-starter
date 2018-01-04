@@ -26,14 +26,33 @@ module.exports = {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 use: [
-                    'babel-loader',
-                ],
+                    'babel-loader'
+                ]
+            },
+            {
+                test: /\.scss$/,
+                use: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: [
+                        {
+                            loader: 'css-loader'
+                        },
+                        {
+                            loader: 'sass-loader'
+                        }
+                    ]
+                })),
             },
             {
                 test: /\.css$/,
-                loader: ExtractTextPlugin.extract({
-                    use: 'css-loader',
-                }),
+                use: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: [
+                        {
+                            loader: 'css-loader'
+                        }
+                    ]
+                })),
             },
             {
                 test: /\.(png|jpg|gif)$/,
@@ -50,6 +69,7 @@ module.exports = {
         port: 9000,
         hot: true
     },
+    devtool: 'source-map',
     resolve: {
         extensions: ['.js', '.jsx'],
     },
