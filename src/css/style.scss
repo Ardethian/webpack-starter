@@ -1,0 +1,31 @@
+$primaryTextColor: #fff;
+$secondaryTextColor: #CFD8DC;
+
+body {
+    background: #f9fafb;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    margin: 0;
+    padding: 30px;
+}
+
+.wrapper {
+    text-align: center;
+    background: #607D8B;
+    color: $primaryTextColor;
+    padding: 20px 0 20px 0;
+    font-family: arial;
+}
+
+h1.title {
+    font-size: 3rem;
+    margin: 0 0 1rem 0;
+}
+
+html {
+    font-size: 16px;
+}
+
+p {
+    color: $secondaryTextColor;
+}
