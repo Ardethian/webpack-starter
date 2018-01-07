@@ -21,4 +21,7 @@ A Webpack Starter Kit, bundled with -
     - Disables Source Maps
     - Enables JS & CSS minification
 
+## Multiple Output and Entry Points
+To add more files to your bundle or create extra bundles (for example, vendor bundles), see the Webpack documentation about [Entry Points](https://webpack.js.org/concepts/entry-points/) and [Output](https://webpack.js.org/concepts/output/).
+
 Cheers \m/
