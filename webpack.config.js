@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MinifyPlugin = require('babel-minify-webpack-plugin');
 
 const paths = {
     src: path.resolve(__dirname, 'src'),
@@ -8,9 +9,18 @@ const paths = {
     js: path.resolve(__dirname, 'src/js'),
 };
 
-
-
 module.exports = env => {
+
+    let plugins = [
+        new HtmlWebpackPlugin({
+            template: path.join(paths.src, 'index.html')
+        }),
+        new ExtractTextPlugin('style.bundle.css')
+    ];
+
+    if(env.prod) {
+        plugins.push(new MinifyPlugin());
+    }
 
     return {
         entry: path.join(paths.js, 'app.js'),
@@ -18,12 +28,7 @@ module.exports = env => {
             path: paths.dist,
             filename: 'app.bundle.js',
         },
-        plugins: [
-            new HtmlWebpackPlugin({
-                template: path.join(paths.src, 'index.html')
-            }),
-            new ExtractTextPlugin('style.bundle.css')
-        ],
+        plugins,
         module: {
             rules: [
                 {
@@ -80,7 +85,7 @@ module.exports = env => {
             port: 9000,
             hot: true
         },
-        devtool: (env.dev) ? 'source-map' : false,
+        devtool: (env.dev) ? 'cheap-source-map' : false,
         resolve: {
             extensions: ['.js']
         },
