@@ -1,23 +1,4 @@
 {
-    "name": "@ardethian/webpack-starter",
-    "description": "A Webpack Starter Kit, bundled with Babel (es2015 preset), JavaScript & CSS minification, CSS Reset, CSS Hot Loader, CSS Loader and Sass Loader",
-    "version": "1.0.0",
-    "main": "webpack.config.js",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/Ardethian/webpack-starter.git"
-    },
-    "keywords": [
-        "webpack",
-        "starter",
-        "es6"
-    ],
-    "author": "Tal Koren",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/Ardethian/webpack-starter/issues"
-    },
-    "homepage": "https://github.com/Ardethian/webpack-starter",
     "devDependencies": {
         "babel-core": "^6.26.0",
         "babel-loader": "^7.1.2",
