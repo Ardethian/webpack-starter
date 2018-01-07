@@ -12,12 +12,12 @@ A Webpack Starter Kit, bundled with -
 2. Simply use ```yarn``` or ```npm install```
 
 ## Scripts
-* Start DevServer - ```yarn run dev```
+* Start DevServer - ```yarn run dev``` or ```npm run dev```
     - Enables JavaScript and CSS Source Maps
     - Disables JS & CSS minification
     - Enables hot reloading
 
-* Build for production - ```yarn run build```
+* Build for production - ```yarn run build``` or ```npm run build```
     - Disables Source Maps
     - Enables JS & CSS minification
 
