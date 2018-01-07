@@ -8,69 +8,80 @@ const paths = {
     js: path.resolve(__dirname, 'src/js'),
 };
 
-module.exports = {
-    entry: path.join(paths.js, 'app.js'),
-    output: {
-        path: paths.dist,
-        filename: 'app.bundle.js',
-    },
-    plugins: [
-        new HtmlWebpackPlugin({
-            template: path.join(paths.src, 'index.html')
-        }),
-        new ExtractTextPlugin('style.bundle.css')
-    ],
-    module: {
-        rules: [
-            {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                use: [
-                    'babel-loader'
-                ]
-            },
-            {
-                test: /\.scss$/,
-                use: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: [
-                        {
-                            loader: 'css-loader'
-                        },
-                        {
-                            loader: 'sass-loader'
-                        }
-                    ]
-                })),
-            },
-            {
-                test: /\.css$/,
-                use: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: [
-                        {
-                            loader: 'css-loader'
-                        }
-                    ]
-                })),
-            },
-            {
-                test: /\.(png|jpg|gif)$/,
-                use: [
-                    'file-loader',
-                ],
-            },
+
+
+module.exports = env => {
+
+    return {
+        entry: path.join(paths.js, 'app.js'),
+        output: {
+            path: paths.dist,
+            filename: 'app.bundle.js',
+        },
+        plugins: [
+            new HtmlWebpackPlugin({
+                template: path.join(paths.src, 'index.html')
+            }),
+            new ExtractTextPlugin('style.bundle.css')
         ],
-    },
-    devServer: {
-        contentBase: path.join(__dirname, "src"),
-        watchContentBase: true,
-        compress: true,
-        port: 9000,
-        hot: true
-    },
-    devtool: 'source-map',
-    resolve: {
-        extensions: ['.js']
-    },
-};
+        module: {
+            rules: [
+                {
+                    test: /\.js$/,
+                    exclude: /node_modules/,
+                    use: [
+                        'babel-loader'
+                    ]
+                },
+                {
+                    test: /\.scss$/,
+                    use: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
+                        fallback: 'style-loader',
+                        use: [
+                            {
+                                loader: 'css-loader',
+                                options: {
+                                    sourceMap: !!env.dev
+                                }
+                            },
+                            {
+                                loader: 'sass-loader',
+                                options: {
+                                    sourceMap: !!env.dev
+                                }
+                            }
+                        ]
+                    })),
+                },
+                {
+                    test: /\.css$/,
+                    use: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
+                        fallback: 'style-loader',
+                        use: [
+                            {
+                                loader: 'css-loader'
+                            }
+                        ]
+                    })),
+                },
+                {
+                    test: /\.(png|jpg|gif)$/,
+                    use: [
+                        'file-loader',
+                    ],
+                },
+            ],
+        },
+        devServer: {
+            contentBase: path.join(__dirname, "src"),
+            watchContentBase: true,
+            compress: true,
+            port: 9000,
+            hot: true
+        },
+        devtool: (env.dev) ? 'source-map' : false,
+        resolve: {
+            extensions: ['.js']
+        },
+    };
+}
