@@ -8,7 +8,8 @@ A Webpack Starter Kit, bundled with -
 - Sass Loader
 
 ## Installing
-Simply use ```yarn``` or ```npm install```
+1. ```git clone https://github.com/Ardethian/webpack-starter && cd webpack-starter```
+2. Simply use ```yarn``` or ```npm install```
 
 ## Scripts
 * Start DevServer - ```yarn run dev```
