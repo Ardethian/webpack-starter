@@ -1,26 +1,45 @@
 {
-    "devDependencies": {
-        "babel-core": "^6.26.0",
-        "babel-loader": "^7.1.2",
-        "babel-minify-webpack-plugin": "^0.2.0",
-        "babel-preset-env": "^1.6.1",
-        "babel-preset-es2015": "^6.24.1",
-        "css-hot-loader": "^1.3.5",
-        "css-loader": "^0.28.7",
-        "extract-text-webpack-plugin": "^3.0.2",
-        "file-loader": "^1.1.5",
-        "html-webpack-plugin": "^2.30.1",
-        "node-sass": "^4.7.2",
-        "sass-loader": "^6.0.6",
-        "style-loader": "^0.19.1",
-        "webpack": "^3.10.0",
-        "webpack-dev-server": "^2.9.7"
-    },
-    "scripts": {
-        "build": "webpack --env.prod",
-        "dev": "webpack-dev-server --hot --env.dev"
-    },
-    "dependencies": {
-        "reset-css": "^2.2.1"
-    }
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-minify-webpack-plugin": "^0.2.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.24.1",
+    "css-hot-loader": "^1.3.5",
+    "css-loader": "^0.28.7",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.5",
+    "html-webpack-plugin": "^2.30.1",
+    "node-sass": "^4.7.2",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.19.1",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.9.7"
+  },
+  "scripts": {
+    "build": "webpack --env.prod",
+    "dev": "webpack-dev-server --hot --env.dev"
+  },
+  "dependencies": {
+    "reset-css": "^2.2.1"
+  },
+  "name": "webpack-starter",
+  "description": "A Webpack Starter Kit, bundled with Babel (es2015 preset), JavaScript & CSS minification, CSS Reset, CSS Hot Loader, CSS Loader and Sass Loader",
+  "version": "1.0.0",
+  "main": "webpack.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ardethian/webpack-starter.git"
+  },
+  "keywords": [
+    "webpack",
+    "starter",
+    "es6"
+  ],
+  "author": "Tal Koren",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Ardethian/webpack-starter/issues"
+  },
+  "homepage": "https://github.com/Ardethian/webpack-starter"
 }
